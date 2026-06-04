@@ -12,7 +12,7 @@ set THREADS=%1
 if "%THREADS%"=="" set THREADS=4
 
 set ITERATIONS=%2
-if "%ITERATIONS%"=="" set ITERATIONS=5000
+if "%ITERATIONS%"=="" set ITERATIONS=20000
 
 set TASK_SIZE=%3
 if "%TASK_SIZE%"=="" set TASK_SIZE=32
@@ -23,7 +23,7 @@ echo ===================================================
 echo [1/2] Compiling source files...
 
 :: Call MSYS2 Bash, jump to the project directory, and compile
-C:\msys64\usr\bin\bash.exe --login -c "cd '%CURRENT_DIR%' && gcc main.c task_buffer.c result_buffer.c threads.c -o mandelbrot_sdl -lmingw32 -lSDL2main -lSDL2 -lpthread -lm"
+C:\msys64\usr\bin\bash.exe --login -c "cd '%CURRENT_DIR%' && gcc main.c task_buffer.c result_buffer.c threads.c producer.c -o mandelbrot_sdl -lmingw32 -lSDL2main -lSDL2 -lpthread -lm"
 
 :: Check if the compilation was successful (Exit Code 0)
 if %ERRORLEVEL% NEQ 0 (

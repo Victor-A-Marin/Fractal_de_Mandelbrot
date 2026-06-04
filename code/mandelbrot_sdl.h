@@ -50,6 +50,7 @@ int result_buffer_pop(Result *r);
 void result_buffer_wake_printer();
 
 // API das Threads
+void* producer_thread(void* arg);
 void* worker_thread(void* arg);
 void* print_thread(void* arg);
 
